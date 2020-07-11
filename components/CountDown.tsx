@@ -1,5 +1,6 @@
 import { FC, useState, useEffect } from 'react';
-
+import PlayIcon from 'heroicons/outline/play.svg';
+import PauseIcon from 'heroicons/outline/pause.svg';
 interface ICountDown {
     inputMinutes: number;
     speed: number;
@@ -22,6 +23,7 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     const [timeRemaining, setTimeRemaining] = useState(
         calculateTimeLeft(count)
     );
+
     const decrementCount = () => {
         setCount(() => count - 1);
         return count;

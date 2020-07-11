@@ -1,5 +1,3 @@
-import PlayIcon from 'heroicons/outline/play.svg';
-import StopIcon from 'heroicons/outline/stop.svg';
 import { Button } from '../components/SpeedButton';
 import { useState, useEffect, FC } from 'react';
 import { CountDown } from '../components/CountDown';
@@ -49,28 +47,25 @@ export default function Timer() {
                             />
                         )}
                     </div>
+
                     <div className="flex items-center justify-center">
                         <div
                             style={{ fontSize: '120px' }}
                             className="text-gray-900"
                         >
                             {timerOn ? (
-                                <CountDown
-                                    inputMinutes={input}
-                                    speed={speed}
-                                    // timerOn={timerOn}
-                                />
+                                <CountDown inputMinutes={input} speed={speed} />
                             ) : (
                                 `${input} min`
                             )}
                         </div>
-                        <PlayIcon className="h-12 w-12 text-gray-900 mr-2" />
                     </div>
 
                     <div className="flex items-center space-x-4">
                         <Button label={'1X'} onClick={() => setSpeed(1000)} />
                         <Button label={'1.5X'} onClick={() => setSpeed(750)} />
                         <Button label={'2X'} onClick={() => setSpeed(500)} />
+                        <Button label={'10X'} onClick={() => setSpeed(100)} />
                     </div>
                 </div>
             </main>
