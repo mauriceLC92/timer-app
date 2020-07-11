@@ -45,13 +45,16 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
             </span>
         );
     });
-    console.log(
-        'timerComponents.length',
-        JSON.stringify(timerComponents.length, null, 4)
-    );
+
     return (
-        <div>
-            {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+        <div className="flex items-center justify-center">
+            <div style={{ fontSize: '120px' }} className="text-gray-900">
+                {timerComponents.length ? (
+                    timerComponents
+                ) : (
+                    <span>Time's up!</span>
+                )}
+            </div>
         </div>
     );
 };
