@@ -10,6 +10,7 @@ export default function Timer() {
     const [input, setInput] = useState(0);
     const [speed, setSpeed] = useState(1000);
     const [timerOn, setTimerOn] = useState(false);
+    const [pausedSpeed, setPausedSpeed] = useState(null);
     const handleOnChange = (e) => {
         e.preventDefault();
         setInput(e.target.value);
@@ -57,8 +58,18 @@ export default function Timer() {
                                 onClick={() => setSpeed(button.speed)}
                             />
                         ))}
-                        <button onClick={() => setSpeed(null)}>
+
+                        <button
+                            onClick={() => {
+                                setPausedSpeed(speed);
+                                setSpeed(null);
+                            }}
+                        >
                             <PauseIcon className="h-24 w-24 text-gray-800 hover:text-gray-500" />
+                        </button>
+
+                        <button onClick={() => setSpeed(pausedSpeed)}>
+                            <PlayIcon className="h-24 w-24 text-gray-800 hover:text-gray-500" />
                         </button>
                     </ButtonGroup>
                 </div>
