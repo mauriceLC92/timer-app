@@ -40,7 +40,6 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     const timerComponents = [];
 
     Object.keys(timeRemaining).forEach((interval) => {
-        console.log(interval, 'interval');
         if (!timeRemaining[interval]) {
             return;
         }
