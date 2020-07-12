@@ -49,9 +49,9 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     });
 
     return (
-        <>
+        <div className={`${count < 20 ? 'text-red-700' : ''}`}>
             {timerComponents.length ? timerComponents : <span>Time's up!</span>}
-        </>
+        </div>
     );
 };
 
