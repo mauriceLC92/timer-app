@@ -55,7 +55,7 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     );
 };
 
-export const CountdownContainer = ({ children }) => {
+export const DisplayContainer = ({ children }) => {
     return (
         <div className="flex items-center justify-center">
             <div style={{ fontSize: '120px' }} className="text-gray-900">

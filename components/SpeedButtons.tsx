@@ -15,3 +15,26 @@ export const Button: FC<IButton> = ({ label, onClick }) => {
         </button>
     );
 };
+
+export const ButtonGroup = ({ children, speed }) => {
+    return (
+        <div className="flex items-center justify-center space-x-4">
+            {children}
+        </div>
+    );
+};
+
+export const buttons = [
+    {
+        label: '1X',
+        speed: 1000,
+    },
+    {
+        label: '1.5X',
+        speed: 750,
+    },
+    {
+        label: '2X',
+        speed: 500,
+    },
+];

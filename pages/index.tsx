@@ -1,10 +1,8 @@
-import { Button } from '../components/SpeedButton';
+import { Button, ButtonGroup, buttons } from '../components/SpeedButtons';
 import { useState } from 'react';
-import { CountDown, CountdownContainer } from '../components/CountDown';
-import { StartButton } from '../components/StartButton';
+import { CountDown, DisplayContainer } from '../components/CountDown';
 import { Alert } from '../components/Alert';
-import PlayIcon from 'heroicons/outline/play.svg';
-import PauseIcon from 'heroicons/outline/pause.svg';
+import { CountDownInput } from '../components/CountDownInput';
 
 export default function Timer() {
     const [input, setInput] = useState(0);
@@ -32,41 +30,29 @@ export default function Timer() {
                             message={'Only positive integers valid for input'}
                         />
                     )}
-
-                    <div className="flex items-center space-x-2">
-                        <div className="w-full flex items-center text-xl font-semibold">
-                            Countdown (min): {input}
-                        </div>
-                        <input
-                            min={0}
-                            onChange={(e) => handleOnChange(e)}
-                            className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-24 appearance-none leading-normal"
-                            placeholder="30"
-                            type="number"
-                        />
-                        {timerOn ? (
-                            <StartButton onClick={resetTimer} label="reset" />
-                        ) : (
-                            <StartButton
-                                isDisabled={input < 0}
-                                onClick={startTimer}
-                                label="start"
-                            />
-                        )}
-                    </div>
-                    <CountdownContainer>
+                    <CountDownInput
+                        handleOnChange={handleOnChange}
+                        startTimer={startTimer}
+                        resetTimer={resetTimer}
+                        timerOn={timerOn}
+                        input={input}
+                        speed={speed}
+                    />
+                    <DisplayContainer>
                         {timerOn ? (
                             <CountDown inputMinutes={input} speed={speed} />
                         ) : (
                             `${input} min`
                         )}
-                    </CountdownContainer>
-                    <div className="flex items-center justify-center space-x-4">
-                        <Button label={'1X'} onClick={() => setSpeed(1000)} />
-                        <Button label={'1.5X'} onClick={() => setSpeed(750)} />
-                        <Button label={'2X'} onClick={() => setSpeed(500)} />
-                        <Button label={'10X'} onClick={() => setSpeed(100)} />
-                    </div>
+                    </DisplayContainer>
+                    <ButtonGroup speed={speed}>
+                        {buttons.map((button) => (
+                            <Button
+                                label={button.label}
+                                onClick={() => setSpeed(button.speed)}
+                            />
+                        ))}
+                    </ButtonGroup>
                 </div>
             </main>
         </div>
