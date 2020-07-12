@@ -1,6 +1,4 @@
-import { FC, useState, useEffect } from 'react';
-import PlayIcon from 'heroicons/outline/play.svg';
-import PauseIcon from 'heroicons/outline/pause.svg';
+import { FC, useState, useEffect, Children } from 'react';
 interface ICountDown {
     inputMinutes: number;
     speed: number;
@@ -28,6 +26,7 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
         setCount(() => count - 1);
         return count;
     };
+
     useEffect(() => {
         const id = setTimeout(() => {
             setTimeRemaining(calculateTimeLeft(decrementCount()));
@@ -41,6 +40,7 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
         if (!timeRemaining[interval]) {
             return;
         }
+
         timerComponents.push(
             <span key={interval}>
                 {timeRemaining[interval]} {interval}{' '}
@@ -49,13 +49,17 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     });
 
     return (
+        <>
+            {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+        </>
+    );
+};
+
+export const CountdownContainer = ({ children }) => {
+    return (
         <div className="flex items-center justify-center">
             <div style={{ fontSize: '120px' }} className="text-gray-900">
-                {timerComponents.length ? (
-                    timerComponents
-                ) : (
-                    <span>Time's up!</span>
-                )}
+                {children}
             </div>
         </div>
     );

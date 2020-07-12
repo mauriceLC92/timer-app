@@ -1,8 +1,10 @@
 import { Button } from '../components/SpeedButton';
-import { useState, useEffect, FC } from 'react';
-import { CountDown } from '../components/CountDown';
+import { useState } from 'react';
+import { CountDown, CountdownContainer } from '../components/CountDown';
 import { StartButton } from '../components/StartButton';
 import { Alert } from '../components/Alert';
+import PlayIcon from 'heroicons/outline/play.svg';
+import PauseIcon from 'heroicons/outline/pause.svg';
 
 export default function Timer() {
     const [input, setInput] = useState(0);
@@ -20,7 +22,10 @@ export default function Timer() {
     return (
         <div className="w-screen h-screen bg-gray-300 flex justify-center items-center">
             <main>
-                <div className="space-y-2  border-2 border-solid border-blue-500 p-6 rounded-lg shadow-xl">
+                <div
+                    style={{ minWidth: '600px' }}
+                    className="space-y-2 border-2 border-solid border-blue-500 p-6 rounded-lg shadow-xl"
+                >
                     {input < 0 && (
                         <Alert
                             title={'Alert'}
@@ -29,7 +34,9 @@ export default function Timer() {
                     )}
 
                     <div className="flex items-center space-x-2">
-                        <div className="w-full">Countdown (min): {input}</div>
+                        <div className="w-full flex items-center text-xl font-semibold">
+                            Countdown (min): {input}
+                        </div>
                         <input
                             min={0}
                             onChange={(e) => handleOnChange(e)}
@@ -47,21 +54,14 @@ export default function Timer() {
                             />
                         )}
                     </div>
-
-                    <div className="flex items-center justify-center">
-                        <div
-                            style={{ fontSize: '120px' }}
-                            className="text-gray-900"
-                        >
-                            {timerOn ? (
-                                <CountDown inputMinutes={input} speed={speed} />
-                            ) : (
-                                `${input} min`
-                            )}
-                        </div>
-                    </div>
-
-                    <div className="flex items-center space-x-4">
+                    <CountdownContainer>
+                        {timerOn ? (
+                            <CountDown inputMinutes={input} speed={speed} />
+                        ) : (
+                            `${input} min`
+                        )}
+                    </CountdownContainer>
+                    <div className="flex items-center justify-center space-x-4">
                         <Button label={'1X'} onClick={() => setSpeed(1000)} />
                         <Button label={'1.5X'} onClick={() => setSpeed(750)} />
                         <Button label={'2X'} onClick={() => setSpeed(500)} />
