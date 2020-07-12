@@ -35,7 +35,7 @@ export const CountDownInput: FC<ICountDownInput> = ({
                 <StartButton onClick={resetTimer} label="reset" />
             ) : (
                 <StartButton
-                    isDisabled={input < 0}
+                    isDisabled={input <= 0}
                     onClick={startTimer}
                     label="start"
                 />

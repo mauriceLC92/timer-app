@@ -1,4 +1,5 @@
-import { FC, useState, useEffect, Children } from 'react';
+import { FC, useState, useEffect, Children, useRef } from 'react';
+
 interface ICountDown {
     inputMinutes: number;
     speed: number;
@@ -28,11 +29,13 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     };
 
     useEffect(() => {
-        const id = setTimeout(() => {
-            setTimeRemaining(calculateTimeLeft(decrementCount()));
-        }, speed);
-        () => clearTimeout(id);
-    }, [count]);
+        if (speed !== null) {
+            const id = setInterval(() => {
+                setTimeRemaining(calculateTimeLeft(decrementCount()));
+            }, speed);
+            return () => clearTimeout(id);
+        }
+    }, [speed, count]);
 
     const timerComponents = [];
 
@@ -69,7 +72,7 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
 export const DisplayContainer = ({ children }) => {
     return (
         <div className="flex items-center justify-center">
-            <div style={{ fontSize: '120px' }} className="text-gray-900">
+            <div style={{ fontSize: '120px' }} className="text-gray-900 flex">
                 {children}
             </div>
         </div>
