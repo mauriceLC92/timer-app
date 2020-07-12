@@ -50,7 +50,18 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
 
     return (
         <div className={`${count < 20 ? 'text-red-700' : ''}`}>
-            {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+            {timerComponents.length ? (
+                <div>
+                    {count <= inputSeconds / 2 && (
+                        <div className="text-lg leading-tight">
+                            Over half way there
+                        </div>
+                    )}
+                    {timerComponents}
+                </div>
+            ) : (
+                <span>Time's up!</span>
+            )}
         </div>
     );
 };
