@@ -10,10 +10,6 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     const calculateTimeLeft = (remainingTime: number) => {
         let timeRemaining = {};
         if (count > 0) {
-            console.log(
-                'Math.floor((remainingTime % 3600) % 60)',
-                Math.floor((remainingTime % 3600) % 60)
-            );
             timeRemaining = {
                 ':': Math.floor((remainingTime % 3600) / 60),
                 s: Math.floor((remainingTime % 3600) % 60),
@@ -44,15 +40,25 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     const timerComponents = [];
 
     Object.keys(timeRemaining).forEach((interval) => {
+        console.log(interval, 'interval');
         if (!timeRemaining[interval]) {
             return;
         }
-
-        timerComponents.push(
-            <span key={interval}>
-                {timeRemaining[interval]} {interval}{' '}
-            </span>
-        );
+        if (interval === ':') {
+            timerComponents.push(
+                <span key={interval}>
+                    {timeRemaining[interval].toString().length === 1 ? '0' : ''}
+                    {timeRemaining[interval]} {interval}{' '}
+                </span>
+            );
+        } else {
+            timerComponents.push(
+                <span key={interval}>
+                    {timeRemaining[interval].toString().length === 1 ? '0' : ''}
+                    {timeRemaining[interval]}{' '}
+                </span>
+            );
+        }
     });
 
     return (
