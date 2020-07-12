@@ -23,7 +23,7 @@ Hooks were favoured for state management as there is no need to reach for anothe
 
 ## Screenshots
 
-https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.29.40_pjtzur.png
-https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.30.02_xkiffn.png
-https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.31.06_roli1d.png
-https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.29.31_qwx9uj.png
+![image1](https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.29.40_pjtzur.png)
+![image2](https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.30.02_xkiffn.png)
+![image3](https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.31.06_roli1d.png)
+![image4](https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.29.31_qwx9uj.png)
