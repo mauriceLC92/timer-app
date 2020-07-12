@@ -10,6 +10,10 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     const calculateTimeLeft = (remainingTime: number) => {
         let timeRemaining = {};
         if (count > 0) {
+            console.log(
+                'Math.floor((remainingTime % 3600) % 60)',
+                Math.floor((remainingTime % 3600) % 60)
+            );
             timeRemaining = {
                 ':': Math.floor((remainingTime % 3600) / 60),
                 s: Math.floor((remainingTime % 3600) % 60),
@@ -52,11 +56,15 @@ export const CountDown: FC<ICountDown> = ({ inputMinutes, speed }) => {
     });
 
     return (
-        <div className={`${count < 20 ? 'text-red-700' : ''}`}>
+        <div
+            className={`${count < 20 ? 'text-red-600' : ''} ${
+                count < 10 ? 'blinking text-red-600 text' : ''
+            }`}
+        >
             {timerComponents.length ? (
                 <div>
                     {count <= inputSeconds / 2 && (
-                        <div className="text-lg leading-tight">
+                        <div className="text-lg leading-tight text-center">
                             Over half way there
                         </div>
                     )}
