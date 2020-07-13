@@ -31,7 +31,7 @@ export const buttons = [
     },
     {
         label: '1.5X',
-        speed: 750,
+        speed: 666.67,
     },
     {
         label: '2X',
