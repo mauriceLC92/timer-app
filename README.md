@@ -1,30 +1,29 @@
+
+
+## Timer App
+
+A timer application built with [React](https://reactjs.org/). Uses hooks for state management.
+The timer can be restarted, paused and have it's countdown sped up by 1.5x and 2x it's normal speed. At normal speed the timer updates every second.
+
+The timer will blink once you are in the final 10 seconds and the countdown will turn red at the 20 second mark. At the end it will indicate your time is up.
+
+## Tech
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+- [React](https://reactjs.org/) for building of the UI
+- [TailwindCSS](https://tailwindcss.com/) for rapid styling iteration and CSS
+- [Vercel](https://vercel.com/) for hosting with ease.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Design choices
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The use of CSS utility classes is by choice and fits in with the philosophy of TailwindCSS. Components are isolated and only if there is a lot of repitition will the CSS utlity classes be extracted into their own class. Else JSX and CSS are kept together to form the components used to build up the user interface.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Hooks were favoured for state management as there is no need to reach for another dependency in the form of Redux or MobX when building a small app. State was instead lifted up to the parent Timer component when needed.
 
-## Learn More
+## Screenshots
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![image1](https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.29.40_pjtzur.png)
+![image2](https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.30.02_xkiffn.png)
+![image3](https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.31.06_roli1d.png)
+![image4](https://res.cloudinary.com/dafbyqayi/image/upload/v1594582842/Screenshot_2020-07-12_at_21.29.31_qwx9uj.png)
