@@ -16,7 +16,7 @@ export const Button: FC<IButton> = ({ label, onClick }) => {
     );
 };
 
-export const ButtonGroup = ({ children, speed }) => {
+export const ButtonGroup = ({ children }) => {
     return (
         <div className="flex items-center justify-center space-x-4">
             {children}

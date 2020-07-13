@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, Children, useRef } from 'react';
+import { FC, useState, useEffect } from 'react';
 
 interface ICountDown {
     inputMinutes: number;

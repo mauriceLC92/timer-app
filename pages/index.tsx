@@ -50,7 +50,7 @@ export default function Timer() {
                             `${input} min`
                         )}
                     </DisplayContainer>
-                    <ButtonGroup speed={speed}>
+                    <ButtonGroup>
                         {buttons.map((button) => (
                             <Button
                                 key={button.label}
